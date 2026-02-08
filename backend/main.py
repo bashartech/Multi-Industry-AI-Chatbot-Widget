@@ -14,7 +14,6 @@ from datetime import datetime
 
 load_dotenv()
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-genai.configure(api_key="AIzaSyCLjYNZyc4NvtF_bBLBSUFmKdt1XBj1fDs")
 model = genai.GenerativeModel("gemini-2.5-flash")
 
 # -----------------------------------
