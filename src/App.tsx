@@ -7,8 +7,9 @@ import IndustrySelector from './components/IndustrySelector';
 
 function App() {
   return (
+    <div className='bg-white w-full min-h-screen'>
     <ChatProvider>
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-white">
         {/* Your main app content goes here */}
         <header className="bg-white shadow-sm">
           <div className="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
@@ -21,7 +22,7 @@ function App() {
         <main>
           <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
             <div className="px-4 py-6 sm:px-0">
-              <div className="border-4 border-dashed border-gray-200 rounded-lg h-96 flex items-center justify-center">
+              <div className="border-4 border-dashed border-gray-200 rounded-lg h-96 flex items-center justify-center bg-white">
                 <p className="text-gray-500">Main content area</p>
               </div>
             </div>
@@ -38,6 +39,7 @@ function App() {
         <AnalyticsPanel />
       </div>
     </ChatProvider>
+    </div>
     
   );
 }

@@ -106,7 +106,7 @@ const ChatWidget: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-6  right-6 z-50">
       {!showWidget ? (
         <button
           onClick={() => {
@@ -123,9 +123,9 @@ const ChatWidget: React.FC = () => {
           </svg>
         </button>
       ) : (
-        <div className="bg-white rounded-lg shadow-chat-widget border border-chat-border overflow-hidden max-w-chat w-full flex flex-col h-chat">
+        <div className="bg-white rounded-lg shadow-lg border  border-gray-200 border-chat-border overflow-hidden max-w-chat w-full flex flex-col h-chat">
           {/* Header */}
-          <div className="bg-chat-primary text-white p-4 flex justify-between items-center">
+          <div className="bg-chat-primary text-gray-900 p-4 flex justify-between items-center">
             <div>
               <h3 className="font-semibold">{config.botName}</h3>
               <p className="text-xs opacity-80">Online now</p>
