@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tailwindcss@latest init -p)",
+      "Bash(npm install express cors mongoose dotenv bcryptjs jsonwebtoken)",
+      "Bash(npm install -D nodemon)",
+      "Bash(npm install chart.js react-chartjs-2)",
+      "Bash(powershell -Command \"Get-ChildItem -Path ''C:\\\\Users\\\\AAA\\\\OneDrive\\\\Next Js Apps\\\\30-days\\\\FTT\\\\fitnesstracker\\\\chatbot'' -Directory\")"
+    ]
+  }
+}
