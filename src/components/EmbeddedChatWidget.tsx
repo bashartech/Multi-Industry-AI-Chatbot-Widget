@@ -6,36 +6,31 @@ import MessageInput from './MessageInput';
 import QuickReplies from './QuickReplies';
 import WelcomeMessage from './WelcomeMessage';
 import LeadCaptureForm from './LeadCaptureForm';
-import { defaultChatConfig } from '../config/chatConfig';
 import { sendMessage } from '../utils/api';
 
 const EmbeddedChatWidget: React.FC = () => {
   const {
     messages,
-    userInfo,
     isLoading,
     isEscalated,
     config,
     addMessage,
-    setUserInfo,
     setLoading,
     setEscalated,
-    setConfig
   } = useChat();
 
-  const [showWidget, setShowWidget] = useState(true); // Always show in embedded mode
   const [showLeadForm, setShowLeadForm] = useState(false);
-  const [hasRequestedInfo, setHasRequestedInfo] = useState(false);
-  const [sessionId, setSessionId] = useState<string>(() => {
+  // const [hasRequestedInfo, setHasRequestedInfo] = useState(false);
+  const [sessionId] = useState<string>(() => {
     // Generate a unique session ID or retrieve from localStorage
     return localStorage.getItem('chat_session_id') || Date.now().toString();
   });
-  const [selectedIndustry, setSelectedIndustry] = useState<string>(() => {
+  const [selectedIndustry] = useState<string>(() => {
     // Get industry from URL params or use default
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get('industry') || 'hotel';
   });
-  const hasInitializedConfig = useRef(false);
+
   const hasShownWelcomeMessage = useRef(false);
 
   // Store session ID in localStorage
@@ -100,7 +95,7 @@ const EmbeddedChatWidget: React.FC = () => {
   };
 
   const handleLeadFormSuccess = () => {
-    setHasRequestedInfo(true);
+    // No longer tracking hasRequestedInfo
   };
 
   return (

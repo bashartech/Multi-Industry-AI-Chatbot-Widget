@@ -6,33 +6,27 @@ import MessageInput from './MessageInput';
 import QuickReplies from './QuickReplies';
 import WelcomeMessage from './WelcomeMessage';
 import LeadCaptureForm from './LeadCaptureForm';
-import { defaultChatConfig } from '../config/chatConfig';
 import { sendMessage } from '../utils/api';
 
 const ChatWidget: React.FC = () => {
   const {
     messages,
-    userInfo,
     isLoading,
     isEscalated,
     config,
     addMessage,
-    setUserInfo,
     setLoading,
     setEscalated,
-    setConfig,
     resetChat
   } = useChat();
 
   const [showWidget, setShowWidget] = useState(false);
   const [showLeadForm, setShowLeadForm] = useState(false);
-  const [hasRequestedInfo, setHasRequestedInfo] = useState(false);
-  const [sessionId, setSessionId] = useState<string>(() => {
+  const sessionId = useState<string>(() => {
     // Generate a unique session ID or retrieve from localStorage
     return localStorage.getItem('chat_session_id') || Date.now().toString();
-  });
-  const [selectedIndustry, setSelectedIndustry] = useState<string>('hotel'); // Default industry
-  const hasInitializedConfig = useRef(false);
+  })[0]; // Extract just the value, not the setter
+  const selectedIndustry = 'hotel'; // Static value, no state needed
 
   // Store session ID in localStorage
   useEffect(() => {
@@ -98,12 +92,10 @@ const ChatWidget: React.FC = () => {
   };
 
   const handleLeadFormSuccess = () => {
-    setHasRequestedInfo(true);
+    // No longer tracking hasRequestedInfo
   };
 
-  const handleIndustryChange = (industry: string) => {
-    setSelectedIndustry(industry);
-  };
+
 
   const handleResetChat = () => {
     resetChat();
@@ -211,16 +203,3 @@ const ChatWidget: React.FC = () => {
 
 export default ChatWidget;
 
-//  
-
-
-// ok so you can embedded script functionality first check that when i        
-//   open our frontend and backend so in frotnend this message shows in the     
-//    loop in cosole when i open chatbot                                        
-//   - ChatContext.tsx:142 Maximum update depth exceeded. This can happen       
-//   when a component calls setState inside useEffect, but useEffect either     
-//    doesn't have a dependency array, or one of the dependencies changes       
-//   on every render.                                                           
-//   - this welcome message also shows in the loop in chatbot                   
-//   - also correct the styles of input in chatbot because we alredy have       
-//   white background so input and text not shows 

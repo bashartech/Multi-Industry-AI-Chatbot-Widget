@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useReducer, useEffect } from 'react';
 import type { ReactNode } from 'react';
 import type { Message, UserInfo, ChatConfig } from '../types/chat';
-import { getSessionData, saveSessionData, getUserInfo, saveUserInfo, clearSession } from '../utils/storage';
+import { saveSessionData, getUserInfo, saveUserInfo, clearSession } from '../utils/storage';
 import { defaultChatConfig } from '../config/chatConfig';
 
 interface ChatState {
