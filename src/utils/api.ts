@@ -11,7 +11,9 @@ export interface ChatRequest {
 
 export const sendMessage = async (message: string, industry: string, sessionId: string) => {
   try {
-    const response = await fetch('http://localhost:8000/chat', {
+    // Use environment variable for backend URL, fallback to localhost for development
+    const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000';
+    const response = await fetch(`${backendUrl}/chat`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -48,8 +50,10 @@ export interface LeadResponse {
 
 export const saveLead = async (leadData: LeadData): Promise<LeadResponse> => {
   try {
+    // Use environment variable for backend URL, fallback to localhost for development
+    const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000';
     // Send lead data to backend to save to Firebase
-    const response = await fetch('http://localhost:8000/lead', {
+    const response = await fetch(`${backendUrl}/lead`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -1,8 +1,8 @@
 (function() {
   // Configuration - can be overridden by passing options when initializing
   const defaultConfig = {
-    backendUrl: 'http://localhost:8000', // Change this to your deployed backend URL
-    embedUrl: 'https://your-vercel-project.vercel.app/chat-embed.html', // Update this to your deployed embed page
+    backendUrl: 'https://bashartc14-chatbot-widget.hf.space/', // Production backend URL
+    embedUrl: 'https://multi-industry-ai-chatbot-widget.vercel.app/chat-embed.html', // Production embed page
     widgetPosition: 'bottom-right', // Options: 'bottom-left', 'bottom-right', 'top-left', 'top-right'
     industries: ['hotel', 'real_estate', 'healthcare'],
     defaultIndustry: 'hotel',

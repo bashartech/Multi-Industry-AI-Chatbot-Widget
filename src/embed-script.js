@@ -4,7 +4,8 @@
 (function() {
   // Configuration options
   const config = {
-    backendUrl: 'http://localhost:8000', // Change this to your deployed backend URL
+    backendUrl: 'https://bashartc14-chatbot-widget.hf.space/', // Production backend URL
+    embedUrl: 'https://multi-industry-ai-chatbot-widget.vercel.app/chat-embed.html', // Production embed page
     widgetPosition: 'bottom-right', // Options: 'bottom-left', 'bottom-right', 'top-left', 'top-right'
     industries: ['hotel', 'real_estate', 'healthcare'],
     defaultIndustry: 'hotel',
@@ -33,7 +34,7 @@
     // Create the iframe for the chat widget
     const iframe = document.createElement('iframe');
     iframe.id = 'ai-chatbot-iframe';
-    iframe.src = `${window.location.origin}/chat-embed.html`; // This would point to the embedded chat page
+    iframe.src = config.embedUrl || `${window.location.origin}/chat-embed.html`; // Use configured embed URL
     iframe.style.cssText = `
       width: 400px;
       height: 500px;

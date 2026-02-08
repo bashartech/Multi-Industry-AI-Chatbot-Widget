@@ -23,5 +23,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
+chatbot_widget
 # git push --force-with-lease origin main
